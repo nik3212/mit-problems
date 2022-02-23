@@ -1,0 +1,151 @@
+%
+% 6.006 problem set 0 solutions template
+%
+\documentclass[12pt,twoside]{article}
+
+\input{macros-fa19}
+\newcommand{\theproblemsetnum}{0}
+\newcommand{\releasedate}{Thursday, September 5}
+\newcommand{\partaduedate}{Sunday, September 8}
+\newcommand{\probP}{\text{I\kern-0.15em P}}
+
+\usepackage{relsize}
+\usepackage{amsmath}
+
+\title{6.006 Problem Set 0}
+
+\begin{document}
+
+\handout{Problem Set \theproblemsetnum}{\releasedate}
+\textbf{All parts are due {\bf \partaduedate} at {\bf 6PM}}.
+
+\setlength{\parindent}{0pt}
+\medskip\hrulefill\medskip
+
+{\bf Name:} Your Name
+
+\medskip\hrulefill
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% See below for common and useful latex constructs. %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Some useful commands:
+% $f(x) = \Theta(x)$
+% $T(x, y) \leq \log(x) + 2^y + \binom{2n}{n}$
+% \ttt{code\_function}
+
+
+% You can create unnumbered lists as follows:
+% \begin{itemize}
+%     \item First item in a list 
+%         \begin{itemize}
+%             \item First item in a list 
+%                 \begin{itemize}
+%                     \item First item in a list 
+%                     \item Second item in a list 
+%                 \end{itemize}
+%             \item Second item in a list 
+%         \end{itemize}
+%     \item Second item in a list 
+% \end{itemize}
+
+% You can create numbered lists as follows:
+% \begin{enumerate}
+%     \item First item in a list 
+%     \item Second item in a list 
+%     \item Third item in a list
+% \end{enumerate}
+
+% You can write aligned equations as follows:
+% \begin{align} 
+%     \begin{split}
+%         (x+y)^3 &= (x+y)^2(x+y) \\
+%                 &= (x^2+2xy+y^2)(x+y) \\
+%                 &= (x^3+2x^2y+xy^2) + (x^2y+2xy^2+y^3) \\
+%                 &= x^3+3x^2y+3xy^2+y^3
+%     \end{split}                                 
+% \end{align}
+
+% You can create grids/matrices as follows:
+% \begin{align}
+%     A = 
+%     \begin{bmatrix}
+%         A_{11} & A_{21} \\
+%         A_{21} & A_{22}
+%     \end{bmatrix}
+% \end{align}
+
+\begin{problems}
+
+\problem  % Problem 1
+$A=\{1,2,4,8,16\}$ and $B=\{-1,1,3,5\}$
+\begin{problemparts}
+\problempart % Problem 1a
+$A \cap B = \{1\}$
+\problempart % Problem 1b
+$\lvert A \cup B \rvert = \lvert \{1,2,4,8,5,3,16,-1\} \rvert=8$
+\problempart % Problem 1c
+$\lvert A - B \rvert = \lvert \{2,4,8,16\} \rvert=4$
+\end{problemparts}
+
+\problem  % Problem 2
+\begin{problemparts}
+\problempart % Problem 2a
+$ \probP(0)=\dfrac{2}{5} * \dfrac{1}{4} = \dfrac{1}{10} $ \\ [1ex]
+$ \probP(1)=\dfrac{3}{5}$ \\ [1ex]
+$ \probP(2)=\dfrac{3}{5}*\dfrac{2}{4}=\dfrac{3}{10}$ \\ [1ex]
+\begin{tabular}{|c c c c|} 
+ \hline
+ X & 0 & 1 & 2 \\ [0.5ex] 
+ \hline
+ \probP & ${\dfrac{1}{10}}$ & ${\dfrac{6}{10}}$ & ${\dfrac{3}{10}}$ \\ [1ex]
+ \hline
+\end{tabular} \\
+
+$\mathbb{E}[X]=\sum_{i=1}^{3} x_i p_i = 0*0.1 + 1*0.6 + 2*0.3 = 1.2$ \\
+\problempart % Problem 2b
+$ $ \\
+\begin{tabular}{|c c c c|} 
+ \hline
+ Y & 0 & 1 & 2 \\ [0.5ex] 
+ \hline
+ \probP & ${\dfrac{1}{4}}$ & ${\dfrac{1}{2}}$ & ${\dfrac{1}{4}}$ \\ [1ex]
+ \hline
+\end{tabular} \\ [1em]
+$\mathbb{E}[Y]=1$
+\problempart % Problem 2c
+$\mathbb{E}[X+Y]=\mathbb{E}[X]+\mathbb{E}[Y]=1.2+1=2.2$
+\end{problemparts}
+
+\problem  % Problem 3
+
+\begin{problemparts}
+\problempart % Problem 3a
+$A \equiv B \mod 2$ \\ [1em]
+$(606 - 360) \mod 2 = 0 \Rightarrow true$ \\
+\problempart % Problem 3b
+$A \equiv B \mod 3$ \\ [1em]
+$(606 - 360) \mod 3 = 0 \Rightarrow true$ \\
+\problempart % Problem 3c
+$A \equiv B \mod 4$ \\ [1em]
+$(606 - 360) \mod 4 = 2 \Rightarrow false$ \\
+\end{problemparts}
+
+\problem  % Problem 4
+Base case:
+$n=0 \text{ then } \mathlarger{\mathlarger{\sum}}_{i=0}^{0}a^{i}=\frac{1-a^{0}}{1-a} = 1$ Assume that is true for $n=k$. We want to show that the statement is true for $n=k+1$.
+
+$\mathlarger{\mathlarger{\sum}}_{i=0}^{k+1}a^{i}=\frac{1-a^{k+2}}{1-a}$ \\
+$\mathlarger{\mathlarger{\sum}}_{i=0}^{k+1}a^{i}=a^{k+1}+\mathlarger{\sum}_{i=0}^{k}a^{i}=a^{k}+\frac{1-a^{k+1}}{1-a}=\frac{a^{k+1}(1-a)}{1-a}+\frac{1-a^{k+1}}{1-a}=\frac{a^{k+1}(1-a)+(1-a^{k+1})}{1-a}=\frac{a^{k+1}-a^{k+2}+1-a^{k+1}}{1-a}=\frac{1-a^{k+2}}{1-a}$, as desired. \\
+
+\problem  % Problem 5
+Base case: A tree contains only one vertex without edges. It means it can be colored to red or blue color. Assume that is true for k vertexes of the tree. We want to show that the statement is true for $k+1$ vertexes. From the condition, we have that the vertex $v$ connected with only one edge with vertex $u$. If we delete the edge which connects $v$
+ and $u$ edges, we will have the $T'$ tree. The $T'$ tree contains $k$ vertexes. By the induction hypothesis, the tree consisting $k$ vertexes doesn't have the adjacent vertices with the same color. Thus, the color of $u$ vertex must be colored to opposite color than vertex $v$. Therefore, anyone edge in the tree doesn't connect vertexes with the same color.
+ 
+\vfill
+
+\end{problems}
+
+\end{document}
